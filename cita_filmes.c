@@ -77,11 +77,11 @@ int CriaCitacoes(const char *nome_arquivo, CitaFilme citacoes[], int max_entrada
 
         /*printf("%s\n\n", linha);*/
 
-        // Uso de strtok_r para evitar problemas com chamadas subsequentes
-        char *resto;
-        char *frase = strtok_r(linha, "#", &resto);
-        char *filme = strtok_r(resto, ",", &resto);
-        char *ano = strtok_r(resto, ",", &resto);
+    
+    
+        char *frase = strtok(linha, "#");
+        char *filme = strtok(NULL, "," );
+        char *ano = strtok(NULL, ",");
         
         if (frase && filme && ano) {
             strncpy(citacoes[contador].frase, frase, MAX_FRASE - 1);
